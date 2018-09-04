@@ -19,7 +19,7 @@
     "messageBroker": false,
     "serviceDiscoveryType": false,
     "buildTool": "maven",
-    "enableSocialSignIn": true,
+    "enableSocialSignIn": false,
     "jwtSecretKey": "37e9a5c1b911abaeb474b94e725d3be64b0f3dea",
     "clientFramework": "angular5",
     "useSass": false,

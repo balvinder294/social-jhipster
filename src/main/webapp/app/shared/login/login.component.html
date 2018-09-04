@@ -13,7 +13,7 @@
                 <strong>Failed to sign in!</strong> Please check your credentials and try again.
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8 offset-md-2">
             <form class="form" role="form" (ngSubmit)="login()">
                 <div class="form-group">
                     <label for="username">Login</label>
@@ -41,13 +41,6 @@
             	<span>You don't have an account yet?</span>
                 <a class="alert-link" (click)="register()">Register a new account</a>
             </div>
-        </div>
-        <div class="col-md-6">
-            <br/>
-            <jhi-social provider="google"></jhi-social>
-            <jhi-social provider="facebook"></jhi-social>
-            <jhi-social provider="twitter"></jhi-social>
-            <!-- jhipster-needle-add-social-button -->
         </div>
     </div>
 </div>

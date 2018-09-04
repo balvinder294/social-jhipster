@@ -15,8 +15,6 @@ import {
     LoginModalService,
     Principal,
     HasAnyAuthorityDirective,
-    JhiSocialComponent,
-    SocialService,
     JhiLoginModalComponent
 } from './';
 
@@ -26,7 +24,6 @@ import {
         SocialSharedCommonModule
     ],
     declarations: [
-        JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective
     ],
@@ -39,7 +36,6 @@ import {
         Principal,
         CSRFService,
         AuthServerProvider,
-        SocialService,
         AuthService,
         UserService,
         DatePipe
@@ -47,7 +43,6 @@ import {
     entryComponents: [JhiLoginModalComponent],
     exports: [
         SocialSharedCommonModule,
-        JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe

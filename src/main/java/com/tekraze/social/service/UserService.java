@@ -29,12 +29,9 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final SocialService socialService;
-
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.socialService = socialService;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -170,7 +167,6 @@ public class UserService {
 
     public void deleteUser(String login) {
         userRepository.findOneByLogin(login).ifPresent(user -> {
-            socialService.deleteUserSocialConnection(user.getLogin());
             userRepository.delete(user);
             log.debug("Deleted User: {}", user);
         });
