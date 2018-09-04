@@ -1,0 +1,24 @@
+version: '2'
+services:
+    social-app:
+        image: social
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=social-cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the Cassandra cluster to start and execute the migration scripts
+        ports:
+            - 8080:8080
+    social-cassandra:
+        extends:
+            file: cassandra-cluster.yml
+            service: social-cassandra
+    social-cassandra-node:
+        image: cassandra:3.9
+        environment:
+            - CASSANDRA_SEEDS=social-cassandra
+    social-cassandra-migration:
+        extends:
+            file: cassandra-migration.yml
+            service: social-cassandra-migration
+        environment:
+            - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
